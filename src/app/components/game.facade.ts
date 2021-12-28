@@ -2,7 +2,7 @@ import { DOCUMENT } from '@angular/common';
 import { Inject, Injectable } from '@angular/core';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { fromEvent } from '@rx-angular/cdk';
-import confetti from 'canvas-confetti';
+import * as confetti from 'canvas-confetti';
 import { isEqual } from 'lodash-es';
 import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
 import {
@@ -12,7 +12,7 @@ import {
   map,
   withLatestFrom,
 } from 'rxjs/operators';
-import { CU2_COLORS } from './const';
+import { CU2_COLORS, KEY_CODES } from './const';
 
 import { Direction, InitialLoser, Loser, MazeMatrix, Position } from './models';
 import { cellSize, generateMaze, getInitialPos, randomInt } from './utils';
@@ -118,8 +118,7 @@ export class GameFacade {
           this.clickupDirIntended$.next(e.which);
           console.log('New direction', e.which);
         }
-        // Enter
-        if (e.which === 13) {
+        if (e.which === KEY_CODES.ENTER) {
           this.reset();
         }
       });

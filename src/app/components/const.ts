@@ -1,15 +1,14 @@
 export const CU2_COLORS = {
   purple: '#7b68EE',
-  pink: '#FD71AF',
   cyan: '#49CCF9',
   yellow: '#FFC800',
-  green: '#00B884',
-  mint: '#68EEBE',
   magenta: '#FF02F0',
-  grey0: '#292D34',
-  grey1: '#7C828D',
-  grey2: '#B9BEC7',
-  grey3: '#E9EBF0',
-  grey4: '#FAFBFC',
-  white: '#FFFFFF',
+};
+
+export const KEY_CODES = {
+  ENTER: 13,
+  ARROW_LEFT: 37,
+  ARROW_UP: 38,
+  ARROW_RIGHT: 39,
+  ARROW_DOWN: 40,
 };
