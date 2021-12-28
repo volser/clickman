@@ -1,0 +1,7 @@
+<div
+  class="cu-maze__cell"
+  [style.width.px]="cellSize"
+  [style.height.px]="cellSize"
+  [class.cu-maze__cell_wall]="cell.value === MazeValue.Wall"
+  *rxFor="let cell of cells$; trackBy: trackById"
+></div>

@@ -1,0 +1,222 @@
+@import "variables";
+@import "mixins";
+
+$container: ".cu-game";
+
+#{$container} {
+  display: flex;
+  padding: 40px 0 0;
+  min-height: 100%;
+
+  &__container {
+    position: relative;
+  }
+
+  &__left,
+  &__right {
+    @include transition-with-hover(opacity);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    min-width: 200px;
+
+    &_hide {
+      opacity: 0;
+    }
+  }
+
+  &__left {
+    flex-shrink: 0;
+  }
+
+  &__center {
+    @include transition-with-hover(opacity);
+    @include content-center();
+
+    flex-direction: column;
+
+    &_hide {
+      opacity: 0;
+    }
+  }
+
+  &__right {
+    background: url(../../../../../../assets/images/components/cu-pacman/complete.svg)
+      no-repeat -9999px -9999px;
+
+    .dark-theme & {
+      background: url(../../../../../../assets/images/components/cu-pacman/complete_dark-theme.svg)
+        no-repeat -9999px -9999px;
+    }
+  }
+
+  &__complete {
+    background: url(../../../../../../assets/images/components/cu-pacman/complete.svg)
+      center center / cover no-repeat transparent;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    .dark-theme & {
+      background: url(../../../../../../assets/images/components/cu-pacman/complete_dark-theme.svg)
+        center center / cover no-repeat transparent;
+    }
+  }
+
+  &__close {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    top: 40px;
+    right: 40px;
+    cursor: pointer;
+    z-index: 10;
+    fill: $color-icons;
+
+    .dark-theme & {
+      fill: $color-lighter-text;
+    }
+
+    &:hover {
+      fill: $color-lighter-text;
+
+      .dark-theme & {
+        fill: $color-icons;
+      }
+    }
+  }
+
+  &__logo {
+    width: 178px;
+    height: 168px;
+    margin-bottom: 50px;
+    fill: #111;
+
+    .dark-theme & {
+      fill: #fff;
+    }
+  }
+
+  &__score {
+    &-value {
+      @include fontTotal(16px, 400);
+
+      margin-bottom: 20px;
+      color: $color-headings;
+
+      .dark-theme & {
+        color: $dark-theme-font-white;
+      }
+    }
+
+    &-length {
+      font-weight: 500;
+    }
+
+    &-losers {
+      @include content-center();
+
+      flex-wrap: wrap;
+      width: 150px;
+    }
+
+    &-loser {
+      width: 24px;
+      height: 24px;
+      margin-bottom: 10px;
+
+      & + & {
+        margin-left: 10px;
+      }
+    }
+  }
+
+  &__controls {
+    @include align-center();
+
+    margin-top: 30px;
+
+    &-item {
+      @include align-center();
+
+      & + & {
+        margin-left: 30px;
+      }
+
+      &-key {
+        width: 14px;
+        height: 14px;
+        fill: $color-lighter-text;
+
+        .dark-theme & {
+          fill: $color-icons;
+        }
+
+        & + & {
+          margin-left: 2px;
+        }
+
+        &_esc {
+          @include fontTotal(12px, 500);
+          @include content-center();
+
+          width: auto;
+          color: $color-lighter-text;
+
+          .dark-theme & {
+            color: $color-icons;
+          }
+        }
+
+        &_move {
+          padding: 1px;
+        }
+
+        &_90 {
+          transform: rotate(90deg);
+        }
+
+        &_180 {
+          transform: rotate(180deg);
+        }
+
+        &_270 {
+          transform: rotate(270deg);
+        }
+      }
+
+      &-description {
+        @include font(12px, 400);
+
+        margin-left: 8px;
+        color: $color-icons;
+
+        .dark-theme & {
+          color: $color-lighter-text;
+        }
+      }
+    }
+  }
+
+  &__modal {
+    .cu-modal__body {
+      height: 100vh;
+    }
+  }
+}
+
+.cu-modal #{$container}__modal.cu-modal__dialog {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+
+  .dark-theme & {
+    background-color: $dark-theme-body;
+  }
+}

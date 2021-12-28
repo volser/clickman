@@ -1,0 +1,8 @@
+<img
+  src="./assets/images/components/cu-pacman/loser/{{ item.id }}.svg"
+  alt="{{ item.name }}"
+  class="cu-loser-agent__logo"
+/>
+<div *ngIf="hint$ | async; let hint" class="cu-loser-agent__hint">
+  {{ hint }}
+</div>

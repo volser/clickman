@@ -1,0 +1,18 @@
+@import 'variables';
+@import 'mixins';
+
+$container: '.cu-maze';
+
+#{$container} {
+  display: flex;
+  flex-wrap: wrap;
+
+  &__cell {
+    // border: solid 1px;
+
+    &_wall {
+      border-radius: 6px;
+      background: linear-gradient(to right, #c54aff, #635ae3);
+    }
+  }
+}
